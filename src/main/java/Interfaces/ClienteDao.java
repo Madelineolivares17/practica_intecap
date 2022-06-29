@@ -56,7 +56,7 @@ int r;
     }
 
     public void modificar(int usuario_id, String nombre, String apellido, int telefono, String direccion, String correo, String fecha_nacimiento, int rol_id, int activo, String contraseña)throws SQLException {
-        String sql = "update usuarios set  nombre=?, apellido=?, telefono=?, direccion=?, correo=?,fecha_nacimiento=?, rol_id=?, activo=?, contraseña=? where usuario_id=?";
+        String sql = "update usuarios set  nombre=?, apellido=?, telefono=?, direccion=?, correo_electronico=?,fecha_nacimiento=?, rol_id=?, activo=?, contraseña=? where usuario_id=?";
         try {
             con = acceso.conectar();
             ps = con.prepareStatement(sql);
@@ -83,7 +83,7 @@ int r;
     }
 
     public void agregar(int usuario_id, String nombre, String apellido, int telefono, String direccion, String correo, String fecha_nacimiento, int rol_id, int activo, String contraseña) {
-        String sql = "insert into usuarios (usuario_id,nombre,apellido,telefono,direccion,correo,fecha_nacimiento,rol_id,activo,contraseña)values(?,?,?,?,?,?,?,?,?,?)";
+        String sql = "insert into usuarios (usuario_id,nombre,apellido,telefono,direccion,correo_electronico,fecha_nacimiento,rol_id,activo,contraseña)values(?,?,?,?,?,?,?,?,?,?)";
         try {
             con = acceso.conectar();
             ps = con.prepareStatement(sql);
@@ -130,7 +130,7 @@ int r;
     public static void main(String[] args) throws ClassNotFoundException, SQLException {
         ClienteDao rp = new ClienteDao();
       
-      //rp.agregar(2, "franciso", "o", 454512, "dasasd", "ddsds", "2002-06-23", 1, 2, "adsasdsd");
+      rp.modificar(3, "franciso", "ocho", 454512, "km 18", "fracisco@gmail.com", "2002-06-23", 1, 2, "12");
      
      
         //para ver los cambios en la base de datos

@@ -19,16 +19,14 @@ public class Usuarios {
     private int rol_id;
     private int activo;
     private String contraseña;
+    private String nombre_rol;
+
+    public Usuarios() {
+    }
 
   
-   
-   
 
-   
-    
-    
-    
-    public void setUsuario_id(int usuario_id) {
+      public void setUsuario_id(int usuario_id) {
         this.usuario_id = usuario_id;
     }
 
@@ -106,6 +104,14 @@ public class Usuarios {
 
     public String getContraseña() {
         return contraseña;
+    }
+
+    public void setNombre_rol(String nombre_rol) {
+        this.nombre_rol = nombre_rol;
+    }
+
+    public String getNombre_rol() {
+        return nombre_rol;
     }
     
     

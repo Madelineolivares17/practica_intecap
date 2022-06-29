@@ -95,15 +95,20 @@ public class Login extends JFrame{
          con_ingresar.setBounds(115,150,150,20);
          p1.add(nom_ingresar);
          p1.add(con_ingresar);
+        
          
-           l4.setBounds(60, 60, 700, 800);
-        l4.setBackground(Color.red);
-	ImageIcon imagen= new ImageIcon ("/img/sexy.png");
+         
+       /* l4.setBackground(Color.red);
+	ImageIcon imagen= new ImageIcon ("src/img/logo.png");
 	Icon icono=new ImageIcon(imagen.getImage().getScaledInstance(l4.getWidth(), l4.getHeight(), Image.SCALE_DEFAULT));
 	l4.setIcon (icono);
+        l4.setBounds(60, 10, 500, 500);
          l4.setVisible(true);
-	p1.add(l4);
+	p1.add(l4);*/
          
+        
+        
+        	
         
      }
      
@@ -169,7 +174,7 @@ public class Login extends JFrame{
              setVisible (false);
              
          }else{
-             JOptionPane.showMessageDialog(null, "usuario o contraseña");
+             JOptionPane.showMessageDialog(null, "usuario o contraseña incorrecto");
              oportunidades= oportunidades-1;
          }
       
