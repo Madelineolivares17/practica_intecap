@@ -1,0 +1,18 @@
+[
+{"type":"header","version":"5.2.0","comment":"Export to JSON plugin for PHPMyAdmin"},
+{"type":"database","name":"evalti"},
+{"type":"table","name":"roles","database":"evalti","data":
+[
+{"rol_id":"1","nombre":"Administrador"},
+{"rol_id":"2","nombre":"Gerente"}
+]
+}
+,{"type":"table","name":"usuarios","database":"evalti","data":
+[
+{"usuario_id":"1","nombre":"Diegoooo","apellido":"Ochoa","telefono":"45874578","direccion":"km 185","correo_electronico":"diego@gmail.com","fecha_nacimiento":"2002-06-23","rol_id":"1","activo":"0","contraseña":"123"},
+{"usuario_id":"2","nombre":"Higgs","apellido":"Particula ","telefono":"45874579","direccion":"km 185","correo_electronico":"higgs@gmai.com","fecha_nacimiento":"2002-06-24","rol_id":"2","activo":"0","contraseña":"1234"},
+{"usuario_id":"3","nombre":"Julian","apellido":"Jimenez","telefono":"45874578","direccion":"km 185","correo_electronico":"julian@gmail.com","fecha_nacimiento":"2002-06-23","rol_id":"1","activo":"0","contraseña":"123"},
+{"usuario_id":"4","nombre":"Javier","apellido":"Juarez","telefono":"45784512","direccion":"km 185","correo_electronico":"javier@gmail.com","fecha_nacimiento":"2012-06-01","rol_id":"2","activo":"1","contraseña":"123"}
+]
+}
+]

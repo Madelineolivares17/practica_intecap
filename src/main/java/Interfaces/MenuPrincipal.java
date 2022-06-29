@@ -186,219 +186,221 @@ public class MenuPrincipal extends JFrame {
     }
 
     public void agregar(String nombre, String apellido, int telefono, String direccion, String correo,
-            String fecha_nacimiento, int rol_id, int estado, String contrasenia) {
-        String sql = "insert into usuarios(nombre, apellido,telefono,direccion,correo_electronico,fecha_nacimiento, rol_id, activo,contraseña)values(?,?,?,?,?,?,?,?,?)";
+			String fecha_nacimiento, int rol_id, int estado, String contrasenia) {
+		String sql = "insert into usuarios(nombre, apellido,telefono,direccion,correo_electronico,fecha_nacimiento, rol_id, activo,contraseña)values(?,?,?,?,?,?,?,?,?)";
 
-        try {
-            con = conec.conectar();
-            ps = con.prepareStatement(sql);
-            ps.setString(1, nombre);
-            ps.setString(2, apellido);
-            ps.setInt(3, telefono);
-            ps.setString(4, direccion);
-            ps.setString(5, correo);
-            ps.setString(6, fecha_nacimiento);
-            ps.setInt(7, rol_id);
-            ps.setInt(8, estado);
-            ps.setString(9, contrasenia);
-            ps.executeUpdate();
+		try {
+			con = conec.conectar();
+			ps = con.prepareStatement(sql);
+			ps.setString(1, nombre);
+			ps.setString(2, apellido);
+			ps.setInt(3, telefono);
+			ps.setString(4, direccion);
+			ps.setString(5, correo);
+			ps.setString(6, fecha_nacimiento);
+			ps.setInt(7, rol_id);
+			ps.setInt(8, estado);
+			ps.setString(9, contrasenia);
+			ps.executeUpdate();
 
-        } catch (SQLException e) {
-            JOptionPane.showMessageDialog(null, e);
-        }
+		} catch (SQLException e) {
+			JOptionPane.showMessageDialog(null, e);
+		}
 
-    }
+	}
 
-    private void crear() {
-        String nombre1 = nombre;
-        int Rol1 = rol;
-        login.setVisible(false);
-        JFrame crearUsuarios = new JFrame();
-        JPanel p1 = new JPanel();
-        crearUsuarios.setLocationRelativeTo(null);
-        crearUsuarios.setTitle("Hoteles GT-Administrador");
-        crearUsuarios.setBackground(Color.WHITE);
 
-        crearUsuarios.setLayout(null);
-    
-        crearUsuarios.setBounds(750, 150, 500, 650);
-        crearUsuarios.setVisible(true);
-        crearUsuarios.setResizable(false);
-        crearUsuarios.add(p1);
-        p1.setSize(500, 850);
-        p1.setLayout(null);
-        p1.setVisible(true);
-        p1.setBackground(Color.white);
+   private void crear() {
+		String nombre1 = nombre;
+		int Rol1= rol;
+		login.setVisible(false);
+		JFrame crearUsuarios = new JFrame();
+		JPanel p1 = new JPanel();
+		crearUsuarios.setLocationRelativeTo(null);
+		crearUsuarios.setTitle("Hoteles GT-Administrador");
+		crearUsuarios.setBackground(Color.WHITE);
 
-        ButtonGroup bg = new ButtonGroup();
-        JRadioButton activo = new JRadioButton("Activo");
-        JRadioButton inactivo = new JRadioButton("Inactivo");
-        bg.add(activo);
-        bg.add(inactivo);
+		crearUsuarios.setLayout(null);
+		// x y ancho y alto
+		crearUsuarios.setBounds(750, 150, 500, 850);
+		crearUsuarios.setVisible(true);
+		crearUsuarios.setResizable(false);
+		crearUsuarios.add(p1);
+		p1.setSize(500, 850);
+		p1.setLayout(null);
+		p1.setVisible(true);
+		p1.setBackground(Color.white);
 
-        activo.setFont(new Font("serig", Font.PLAIN, 22));
-        activo.setBounds(120, 470, 100, 25);
-        p1.add(activo);
+		ButtonGroup bg = new ButtonGroup();
+		JRadioButton activo = new JRadioButton("Activo");
+		JRadioButton inactivo = new JRadioButton("Inactivo");
+		bg.add(activo);
+		bg.add(inactivo);
 
-        inactivo.setFont(new Font("serig", Font.PLAIN, 22));
-        inactivo.setBounds(260, 470, 150, 25);
-        p1.add(inactivo);
+		activo.setFont(new Font("Roboto Light", Font.PLAIN, 22));
+		activo.setBounds(120, 670, 100, 25);
+		p1.add(activo);
 
-         JLabel l1 = new JLabel("Modificar Usuario");
-            JLabel l2 = new JLabel("Nombre");
-            JLabel l3 = new JLabel("Apellido");
-            JLabel l4 = new JLabel("Telefono");
-            JLabel l5 = new JLabel("Direccion");
-            JLabel l6 = new JLabel("Correo");
-            JLabel l7 = new JLabel("Fecha Nacimiento");
-            JLabel formatoFecha = new JLabel("Año/Mes/Dia");
-            JLabel l8 = new JLabel("Contraseña");
+		inactivo.setFont(new Font("Roboto Light", Font.PLAIN, 22));
+		inactivo.setBounds(260, 670, 150, 25);
+		p1.add(inactivo);
 
-            JTextField t1 = new JTextField();
-            JTextField t2 = new JTextField();
-            JTextField t3 = new JTextField();
-            JTextField t4 = new JTextField();
-            JTextField t5 = new JTextField();
-            JTextField t6 = new JTextField();
-            JPasswordField t7 = new JPasswordField();
-            JButton B1 = new JButton("Guardar Cambios");
-            JButton B2 = new JButton("Cancelar");
+		JLabel l0 = new JLabel("Agregar Usuario");
+		JLabel l1 = new JLabel("Nombre");
+		JLabel l2 = new JLabel("Apellido");
+		JLabel l3 = new JLabel("Telefono");
+		JLabel l4 = new JLabel("Direccion");
+		JLabel l5 = new JLabel("Correo");
+		JLabel l6 = new JLabel("Fecha Nacimiento");
+		JLabel formatoFecha = new JLabel("Año/Mes/Dia");
+		JLabel l7 = new JLabel("Contraseña");
 
-            l1.setFont(new Font("serig", Font.PLAIN, 15));
-            l1.setBounds(175, 10, 250, 25);
-            p1.add(l1);
+		JTextField T1 = new JTextField();
+		JTextField T2 = new JTextField();
+		JTextField T3 = new JTextField();
+		JTextField T4 = new JTextField();
+		JTextField T5 = new JTextField();
+		JTextField T6 = new JTextField();
+		JPasswordField T7 = new JPasswordField();
+		JButton B1 = new JButton("Guardar");
+		JButton B2 = new JButton("Cancelar");
 
-            l2.setFont(new Font("serig", Font.PLAIN, 15));
-            l2.setBounds(50, 70, 100, 25);
-            p1.add(l2);
+		l0.setFont(new Font("Roboto Black", Font.PLAIN, 22));
+		l0.setBounds(175, 10, 250, 25);
+		p1.add(l0);
 
-            l3.setFont(new Font("serig", Font.PLAIN, 15));
-            l3.setBounds(50, 120, 100, 25);
-            p1.add(l3);
+		l1.setFont(new Font("Roboto Light", Font.PLAIN, 22));
+		l1.setBounds(50, 70, 100, 25);
+		p1.add(l1);
 
-            l4.setFont(new Font("serig", Font.PLAIN, 15));
-            l4.setBounds(50, 170, 125, 25);
-            p1.add(l4);
+		l2.setFont(new Font("Roboto Light", Font.PLAIN, 22));
+		l2.setBounds(50, 150, 100, 25);
+		p1.add(l2);
 
-            l5.setFont(new Font("serig", Font.PLAIN, 15));
-            l5.setBounds(50, 220, 100, 25);
-            p1.add(l5);
+		l3.setFont(new Font("Roboto Light", Font.PLAIN, 22));
+		l3.setBounds(50, 250, 125, 25);
+		p1.add(l3);
 
-            l6.setFont(new Font("serig", Font.PLAIN, 15));
-            l6.setBounds(75, 270, 100, 25);
-            p1.add(l6);
+		l4.setFont(new Font("Roboto Light", Font.PLAIN, 22));
+		l4.setBounds(50, 350, 100, 25);
+		p1.add(l4);
 
-            formatoFecha.setFont(new Font("serig", Font.PLAIN, 10));
-            formatoFecha.setBounds(200, 300, 200, 25);
-            p1.add(formatoFecha);
+		l5.setFont(new Font("Roboto Light", Font.PLAIN, 22));
+		l5.setBounds(75, 430, 100, 25);
+		p1.add(l5);
 
-            l7.setFont(new Font("serig", Font.PLAIN, 15));
-            l7.setBounds(20, 320, 200, 25);
-            p1.add(l7);
+		formatoFecha.setFont(new Font("Roboto Black", Font.PLAIN, 22));
+		formatoFecha.setBounds(200, 500, 200, 25);
+		p1.add(formatoFecha);
 
-            l8.setFont(new Font("serig", Font.PLAIN, 15));
-            l8.setBounds(50, 370, 200, 25);
-            p1.add(l8);
+		l6.setFont(new Font("Roboto Light", Font.PLAIN, 22));
+		l6.setBounds(20, 530, 200, 25);
+		p1.add(l6);
 
-            t1.setFont(new Font("serig", Font.PLAIN, 15));
-            t1.setBounds(200, 70, 200, 25);
-            p1.add(t1);
+		l7.setFont(new Font("Roboto Light", Font.PLAIN, 22));
+		l7.setBounds(50, 610, 200, 25);
+		p1.add(l7);
 
-            t2.setFont(new Font("serig", Font.PLAIN, 15));
-            t2.setBounds(200, 120, 200, 25);
-            p1.add(t2);
+		T1.setFont(new Font("Roboto Light", Font.PLAIN, 22));
+		T1.setBounds(200, 70, 200, 25);
+		p1.add(T1);
 
-            t3.setFont(new Font("serig", Font.PLAIN, 15));
-            t3.setBounds(200, 170, 200, 25);
-            p1.add(t3);
+		T2.setFont(new Font("Roboto Light", Font.PLAIN, 22));
+		T2.setBounds(200, 150, 200, 25);
+		p1.add(T2);
 
-            t4.setFont(new Font("serig", Font.PLAIN, 15));
-            t4.setBounds(200, 220, 200, 25);
-            p1.add(t4);
+		T3.setFont(new Font("Roboto Light", Font.PLAIN, 22));
+		T3.setBounds(200, 250, 200, 25);
+		p1.add(T3);
 
-            t5.setFont(new Font("serig", Font.PLAIN, 15));
-            t5.setBounds(200, 270, 200, 25);
-            p1.add(t5);
+		T4.setFont(new Font("Roboto Light", Font.PLAIN, 22));
+		T4.setBounds(200, 350, 200, 25);
+		p1.add(T4);
 
-            t6.setFont(new Font("serig", Font.PLAIN, 15));
-            t6.setBounds(200, 320, 200, 25);
-            p1.add(t6);
+		T5.setFont(new Font("Roboto Light", Font.PLAIN, 22));
+		T5.setBounds(200, 430, 200, 25);
+		p1.add(T5);
 
-            t7.setFont(new Font("serig", Font.PLAIN, 15));
-            t7.setBounds(200, 370, 200, 25);
-            p1.add(t7);
+		T6.setFont(new Font("Roboto Light", Font.PLAIN, 22));
+		T6.setBounds(200, 530, 200, 25);
+		p1.add(T6);
 
-            B1.setFont(new Font("serig", Font.PLAIN, 15));
-            B1.setForeground(Color.white);
-            B1.setBackground(Color.BLUE);
-            B1.setBounds(40, 520, 250, 50);
-            p1.add(B1);
+		T7.setFont(new Font("Roboto Light", Font.PLAIN, 22));
+		T7.setBounds(200, 610, 200, 25);
+		p1.add(T7);
 
-            B2.setFont(new Font("serig", Font.PLAIN, 15));
-            B2.setForeground(Color.white);
-            B2.setBackground(Color.BLUE);
-            B2.setBounds(300, 520, 150, 50);
-            p1.add(B2);
+		B1.setFont(new Font("Roboto Medium", Font.PLAIN, 22));
+		B1.setForeground(Color.white);
+		B1.setBackground(Color.BLUE);
+		B1.setBounds(80, 740, 150, 50);
+		p1.add(B1);
 
-        ActionListener agregarbd = new ActionListener() {
+		B2.setFont(new Font("Roboto Medium", Font.PLAIN, 22));
+		B2.setForeground(Color.white);
+		B2.setBackground(Color.BLUE);
+		B2.setBounds(250, 740, 150, 50);
+		p1.add(B2);
 
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                if (activo.isSelected()) {
-                    estado = 1;
-                } else if (inactivo.isSelected()) {
-                    estado = 0;
-                }
+		ActionListener agregarbd = new ActionListener() {
 
-                if (t1.getText().isEmpty() || t2.getText().isEmpty() || t3.getText().isEmpty() || t4.getText().isEmpty()
-                        || t5.getText().isEmpty() || t6.getText().isEmpty() || t7.getText().isEmpty()) {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				if (activo.isSelected()) {
+					estado = 1;
+				} else if (inactivo.isSelected()) {
+					estado = 0;
+				}
 
-                    JOptionPane.showMessageDialog(null, "DATOS INCORRECTOS");
-                } else {
-                    agregar(t1.getText(), t2.getText(), Integer.parseInt(t3.getText()), t4.getText(), t5.getText(),
-                            t6.getText(), rol, estado, t7.getText());
-                    JOptionPane.showMessageDialog(null, "SE HA AGREGADO CORRECTAMENTE");
-                    crearUsuarios.setVisible(false);
-                    MenuPrincipal mu = new MenuPrincipal();
-                    mu.setNombre(nombre1);
-                    mu.setRol(Rol1);
-                    try {
-                        mu.ejecutar();
-                    } catch (ClassNotFoundException ex) {
-                        Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-                    } catch (SQLException ex) {
-                        Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-                    }
+				if (T1.getText().isEmpty() || T2.getText().isEmpty() || T3.getText().isEmpty() || T4.getText().isEmpty()
+						|| T5.getText().isEmpty() || T6.getText().isEmpty() || T7.getText().isEmpty()) {
 
-                }
+					JOptionPane.showMessageDialog(null, "DATOS INCORRECTOS");
+				} else {
+                                    try {
+                                        agregar(T1.getText(), T2.getText(), Integer.parseInt(T3.getText()), T4.getText(), T5.getText(),
+                                                T6.getText(), rol, estado, T7.getText());
+                                        JOptionPane.showMessageDialog(null, "SE HA AGREGADO CORRECTAMENTE");
+                                        crearUsuarios.setVisible(false);
+                                        MenuPrincipal mu = new MenuPrincipal();
+                                        mu.setNombre(nombre1);
+                                        mu.setRol(Rol1);
+                                        mu.ejecutar();
+                                    } catch (ClassNotFoundException ex) {
+                                        Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                                    } catch (SQLException ex) {
+                                        Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                                    }
 
-            }
-        };
+				}
 
-        // Acción del evento
-        B1.addActionListener(agregarbd);
+			}
+		};
 
-        ActionListener cancelar = new ActionListener() {
+		// Acción del evento
+		B1.addActionListener(agregarbd);
 
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                crearUsuarios.setVisible(false);
-                MenuPrincipal mu = new MenuPrincipal();
-                mu.setNombre(nombre1);
-                mu.setRol(Rol1);
-                try {
-                    mu.ejecutar();
-                } catch (ClassNotFoundException ex) {
-                    Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (SQLException ex) {
-                    Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        };
+		ActionListener cancelar = new ActionListener() {
 
-        // Acción del evento
-        B2.addActionListener(cancelar);
-    }
+			@Override
+			public void actionPerformed(ActionEvent e) {
+                            try {
+                                crearUsuarios.setVisible(false);
+                                MenuPrincipal mu = new MenuPrincipal();
+                                mu.setNombre(nombre1);
+                                mu.setRol(Rol1);
+                                mu.ejecutar();
+                            } catch (ClassNotFoundException ex) {
+                                Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                            } catch (SQLException ex) {
+                                Logger.getLogger(MenuPrincipal.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+			}
+		};
+
+		// Acción del evento
+		B2.addActionListener(cancelar);
+	}
+
 
     /*public ArrayList <Usuarios> listaprod(){
         List<Usuarios> listaprod = new ArrayList<>();
@@ -527,29 +529,30 @@ Object [] row = new Object [6];
     }
 
     public void modificar(String nombre, String apellido, int telefono, String direccion, String correo,
-            String fecha_nacimiento, String contrasenia, int id) {
-        String sql = "update usuarios set nombre=?, apellido=?, telefono=?, direccion=?, correo_electronico=?, fecha_nacimiento=?, contraseña=? where usuario_id=?";
+			String fecha_nacimiento,  String contrasenia, int id) {
+		String sql = "update usuarios set nombre=?, apellido=?, telefono=?, direccion=?, correo_electronico=?, fecha_nacimiento=?, contraseña=? where usuario_id=?";
 
-        try {
-            con = conec.conectar();
-            ps = con.prepareStatement(sql);
-            ps.setString(1, nombre);
-            ps.setString(2, apellido);
-            ps.setInt(3, telefono);
-            ps.setString(4, direccion);
-            ps.setString(5, correo);
-            ps.setString(6, fecha_nacimiento);
-            ps.setString(7, contrasenia);
-            ps.setInt(8, id);
+		try {
+			con = conec.conectar();
+			ps = con.prepareStatement(sql);
+			ps.setString(1, nombre);
+			ps.setString(2, apellido);
+			ps.setInt(3, telefono);
+			ps.setString(4, direccion);
+			ps.setString(5, correo);
+			ps.setString(6, fecha_nacimiento);
+			ps.setString(7, contrasenia);
+			ps.setInt(8, id);
+			
+			ps.executeUpdate();
 
-            ps.executeUpdate();
+		} catch (SQLException e) {
 
-        } catch (SQLException e) {
+			e.printStackTrace();
+		}
 
-            e.printStackTrace();
-        }
+	}
 
-    }
 
     private void modificarUsuario() {
         int seleccionar = tabla.getSelectedRow();
